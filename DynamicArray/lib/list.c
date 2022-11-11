@@ -60,3 +60,9 @@ void remove_element_by_value (array_list *list, int value) {
         }
     }
 }
+
+void display (array_list *list) {
+    for (int i = 0; i < list->used; i++) {
+        printf ("%d\n", list->arr[i]);
+    }
+};
