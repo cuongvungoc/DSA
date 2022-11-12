@@ -40,15 +40,24 @@ int gcd (int a, int b) {
     return a;
 }
 
+int gcd_in_range (int *arr, int len, int l, int r) {
+    int *temp = (int*) malloc (2 * sizeof(int));
+    int count = 0;
+    for (int i = 0; i < len; i++) {
+        if (arr[i] >= l && arr[i] <= r) {
+            temp[count] = arr[i];
+            count ++;
+        }
+    }
+    int gcd_t = gcd (temp[0], temp[1]);
+    for (int i = 2; i < count; i++) {
+        gcd_t = gcd (gcd_t, temp[i]);
+    }
+    return gcd_t;
+}
+
 int main () {
-    // int a[] = {1, 5, 3, 9, 8};
-    // // sort (a, 5);
-    // int m = smallest (a, 5, 5);
-    // printf ("%d\n", m);
 
-    // printf ("%d\n", gcd(15,30));
-
-    
     FILE *fp;
     fp = fopen ("input.txt", "r+");
     array_list list;
@@ -64,22 +73,20 @@ int main () {
         case 1:
             fscanf (fp, "%d", &x);
             add_element_to_array (&list, x);
-            printf ("%s\n", "Case 1 called !");
             break;
         case 2:
             fscanf (fp, "%d", &x);
             remove_element_by_value (&list, x);
-            printf ("%s\n", "Case 2 called !");
             break;
         case 3:
             fscanf (fp, "%d", &x);
             printf ("%d\n", smallest (list.arr, list.used, x));
-            printf ("%s\n", "Case 3 called !");
+            break;
         case 4:
             fscanf (fp, "%d", &l);
             fscanf (fp, "%d", &r);
-            printf ("%s\n", "Case 4 called !");
-
+            printf ("%d\n", gcd_in_range (list.arr, list.used, l, r));
+            break;
         default:
             break;
         }
