@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-struct node_t {
-	int data;
-	struct node_t* next;
-};
+#include "linkedlist.h"
 
 void printList(struct node_t* n)
 {
@@ -12,6 +8,7 @@ void printList(struct node_t* n)
 		printf(" %d ", n->data);
 		n = n->next;
 	}
+    printf("\n");
 }
 
 void push (struct node_t **head_ref, int new_data) {
@@ -34,11 +31,10 @@ void append(struct node_t** head_ref, int new_data) {
     struct node_t *last = *head_ref;
 
     new_node->data = new_data;
-
     new_node->next = NULL;
 
     // If linked list is empty, make the new node
-    if (head_ref == NULL) {
+    if (*head_ref == NULL) {
         *head_ref = new_node;
         return;
     }
@@ -119,26 +115,26 @@ void delete_by_key(struct node_t **head, int key) {
     free(temp);
 }
 
-int main()
-{
-	struct node_t* head = NULL;
-	push (&head, 5);
-    push (&head, 4);
-    push (&head, 3);
-    push (&head, 2);
-    push (&head, 1);
-    append (&head, 6);
-    append (&head, 7);
-    append (&head, 8);
-    insert (head->next->next, 9);
-    printList(head);
-    printf("\n");
-    delete_at (&head, 1);
-    delete_by_key (&head, 5);
+// int main()
+// {
+// 	struct node_t* head = NULL;
+// 	push (&head, 5);
+//     push (&head, 4);
+//     push (&head, 3);
+//     push (&head, 2);
+//     push (&head, 1);
+//     append (&head, 6);
+//     append (&head, 7);
+//     append (&head, 8);
+//     insert (head->next->next, 9);
+//     printList(head);
+//     printf("\n");
+//     delete_at (&head, 1);
+//     delete_by_key (&head, 5);
 
 
-	// Function call
-	printList(head);
+// 	// Function call
+// 	printList(head);
 
-	return 0;
-}
+// 	return 0;
+// }
