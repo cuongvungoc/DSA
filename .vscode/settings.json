@@ -1,3 +1,8 @@
 {
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "linkedlist.h": "c",
+        "stdlib.h": "c",
+        "stdbool.h": "c"
+    }
 }

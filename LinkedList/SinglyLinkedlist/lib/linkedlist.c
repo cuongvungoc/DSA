@@ -45,7 +45,7 @@ void append(struct node_t** head_ref, int new_data) {
     }
 
     // Change the next of last node
-    last->next = new_node;// insert (head->next, 9);
+    last->next = new_node;
     return;
 }
 
@@ -114,27 +114,3 @@ void delete_by_key(struct node_t **head, int key) {
     prev->next = temp->next;
     free(temp);
 }
-
-// int main()
-// {
-// 	struct node_t* head = NULL;
-// 	push (&head, 5);
-//     push (&head, 4);
-//     push (&head, 3);
-//     push (&head, 2);
-//     push (&head, 1);
-//     append (&head, 6);
-//     append (&head, 7);
-//     append (&head, 8);
-//     insert (head->next->next, 9);
-//     printList(head);
-//     printf("\n");
-//     delete_at (&head, 1);
-//     delete_by_key (&head, 5);
-
-
-// 	// Function call
-// 	printList(head);
-
-// 	return 0;
-// }

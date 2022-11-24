@@ -1,4 +1,4 @@
-#include "dll.h"
+#include "lib/dll.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,10 +19,10 @@ void solve_problem (struct node_t *node) {
     while (node != NULL) {
         if (node->data % 2 == 0) {
             left = node;
-            while (node->data % 2 == 0 && node->next != NULL) {
+            while (node->data % 2 == 0 && node->next != NULL && node->next->data % 2 == 0) {
                 node = node->next;
             }
-            right = node->prev;
+            right = node;
             if (left != right) {
                 reverse_subll (left, right);
             }
